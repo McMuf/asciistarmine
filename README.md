@@ -45,5 +45,27 @@ branching site with a genuine outcome fork — investigate further and
 (optionally) rescue Juno, or take the fast loot-and-retreat option and miss
 her entirely.
 
-Planned next:
-- Checkpoint 4 — four ending arcs (Company / Union / Pirates / Consortium)
+**Checkpoint 4** — the four ending arcs, each a fixed 4-checkpoint spine
+(setup → real ask → escalation → resolution) with 2-3 flavor choices per
+checkpoint that never change which checkpoint comes next — "fixed
+checkpoints, variation between them," as designed:
+- **Consortium — "The Deep Signal"**: reachable independent of the political
+  factions, via the anomalous-ore thread (Voidglass + Consortium contact).
+  Three distinct final choices (release / destroy / merge).
+- **Union — "Free Rig"**: reachable at high Union standing. Ends in a
+  mutiny; the epilogue text reacts to which companions you'd recruited.
+- **Pirates — "The Long Black"**: reachable at high Pirate standing. Ends
+  with defection to the fleet.
+- **Company — "The Promotion"**: reachable at high Company standing, or as
+  the default fallback if no faction relationship is strong enough by day
+  15 — the horror-twist ending, playing "the ore was never just ore" out to
+  its logical conclusion.
+
+Which arc triggers is decided automatically from faction reputation (or the
+Voidglass/Consortium thread) — no manual arc selection needed. Once an
+ending resolves, the survival tick stops and the header banner shows which
+ending landed.
+
+The full loop (Act 1 hab survival → Act 2 mining/quotas → Act 3 faction
+consequences + derelict expedition → Act 4 ending arc) is now playable
+start to finish.

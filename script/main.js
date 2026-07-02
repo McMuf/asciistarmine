@@ -22,6 +22,16 @@ const eventChoices = document.getElementById('event-choices');
 const codexModal = document.getElementById('codex-modal');
 const codexEntries = document.getElementById('codex-entries');
 const codexCloseBtn = document.getElementById('codex-close');
+const stageLabel = document.getElementById('stage-label');
+
+const ENDING_LABELS = {
+  consortium_release: 'STORY COMPLETE — THE DEEP SIGNAL, RELEASED',
+  consortium_destroy: 'STORY COMPLETE — THE DEEP SIGNAL, DESTROYED',
+  consortium_merge: 'STORY COMPLETE — THE DEEP SIGNAL, CARRIED',
+  union_free_rig: 'STORY COMPLETE — FREE RIG',
+  pirates_long_black: 'STORY COMPLETE — THE LONG BLACK',
+  company_ascension: 'STORY COMPLETE — THE PROMOTION'
+};
 
 const actions = [
   new ActionButton({
@@ -113,6 +123,13 @@ function renderStores() {
 
 function renderActions() {
   actionsList.innerHTML = '';
+  if (stateManager.state.flags.game_complete) {
+    const done = document.createElement('div');
+    done.style.color = 'var(--dim)';
+    done.textContent = '— contract concluded —';
+    actionsList.appendChild(done);
+    return;
+  }
   for (const action of actions) {
     if (!action.isVisible(stateManager.state)) continue;
     const btn = document.createElement('button');
@@ -170,6 +187,10 @@ function renderAll() {
   renderFactions();
   renderCompanions();
   renderCodexButton();
+  const endingId = stateManager.state.flags.ending_id;
+  if (endingId && ENDING_LABELS[endingId]) {
+    stageLabel.textContent = ENDING_LABELS[endingId];
+  }
 }
 
 function renderEventModal(event) {

@@ -41,6 +41,11 @@ export const CODEX = [
     id: 'juno_found',
     title: 'Personal Note, Recovered',
     body: 'Tucked in the sealed compartment, written on the back of a supply manifest: "If anyone reads this — I welded the door from the inside on purpose. It wasn\'t pirates. I need someone to believe that before I need anything else." It isn\'t signed. It didn\'t need to be.'
+  },
+  {
+    id: 'archive_truth',
+    title: 'Consortium Archive — Decrypted Summary',
+    body: 'Voidglass is residue: what\'s left after a system-spanning process extracted every usable resource from a civilization\'s worlds, systematically, on a schedule, then moved on. Not a war. Not a disaster. A harvest, completed. The unsettling part isn\'t that it happened once. It\'s that nothing in the data suggests it was the only time.'
   }
 ];
 

@@ -24,6 +24,8 @@ class Engine {
 
   tick() {
     const s = stateManager.state;
+    if (s.flags.game_complete) return;
+
     s.tick += 1;
     tickCooldowns();
 
