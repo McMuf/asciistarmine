@@ -1,5 +1,5 @@
 // Reputation is a signed integer per faction. Thresholds gate dialogue tone,
-// store access, and — eventually — which of the four ending arcs becomes
+// store access, and, eventually, which of the four ending arcs becomes
 // reachable. Rep-changing events ship in checkpoint 3; this file just fixes
 // the shape so nothing later has to invent new state.
 

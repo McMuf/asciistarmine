@@ -15,6 +15,18 @@ body {
   font-family: 'Courier New', monospace;
   margin: 0;
   padding: 1.5rem;
+  position: relative;
+}
+
+#starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: block;
+}
+
+#game {
+  position: relative;
 }
 
 #header h1 {
@@ -96,7 +108,7 @@ button:disabled {
 
 .hidden { display: none !important; }
 
-#event-modal, #codex-modal {
+#event-modal, #codex-modal, #title-modal, #tutorial-modal {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.75);
@@ -129,3 +141,36 @@ button:disabled {
 }
 
 .codex-entry p { font-size: 0.85rem; margin: 0; }
+
+#title-modal-box, #tutorial-modal-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--fg);
+  padding: 2rem;
+  max-width: 560px;
+  width: 90%;
+}
+
+.title-heading {
+  letter-spacing: 0.3em;
+  text-align: center;
+  color: var(--amber);
+  margin-top: 0;
+}
+
+.title-hook {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+.tutorial-list {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  padding-left: 1.2rem;
+}
+
+.tutorial-list li { margin-bottom: 0.6rem; }
+
+#title-begin, #tutorial-close {
+  margin-top: 1rem;
+}

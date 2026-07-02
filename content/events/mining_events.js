@@ -22,10 +22,10 @@ export const MINING_EVENTS = [
     ambient: true,
     requires: (state) => state.flags.mining_unlocked && state.day >= 2,
     title: 'Incoming Transmission',
-    text: 'An unencrypted hail, not Company format. "Rig two hundred klicks spinward, this is Voss — you\'re new on that frequency, or new on that rig. Either way, welcome to the belt. Figured I\'d say hello before the Company does."',
+    text: 'An unencrypted hail, not Company format. "Rig two hundred klicks spinward, this is Voss, you\'re new on that frequency, or new on that rig. Either way, welcome to the belt. Figured I\'d say hello before the Company does."',
     choices: [
       {
-        label: 'Respond — glad for the company',
+        label: 'Respond, glad for the company',
         next: null,
         effect: (sm) => {
           sm.meetCompanion('voss');
@@ -48,8 +48,8 @@ export const MINING_EVENTS = [
     once: true,
     ambient: true,
     requires: (state) => state.flags.mining_unlocked && state.day >= 3,
-    title: 'Priority Channel — Kessler-Voss Extraction',
-    text: '"Contractor, this is Auditor Renn, quota compliance division. Routine check-in — I see your drones are active, which is good, because your onboarding cycle grace period ends this week." Pleasant. Procedural. Not actually a question.',
+    title: 'Priority Channel, Kessler-Voss Extraction',
+    text: '"Contractor, this is Auditor Renn, quota compliance division. Routine check-in, I see your drones are active, which is good, because your onboarding cycle grace period ends this week." Pleasant. Procedural. Not actually a question.',
     choices: [
       {
         label: 'Confirm compliance, ask no questions',
@@ -81,8 +81,8 @@ export const MINING_EVENTS = [
     once: true,
     title: 'Follow-up Check-in',
     text: (state) => state.flags.renn_stance === 'compliant'
-      ? 'Renn calls back, warmer this time. "Your numbers are ahead of projection. Whatever you\'re doing, keep doing it — I\'m flagging your file as low-maintenance, which out here is the nicest thing anyone will say about you."'
-      : 'Renn calls back, colder this time. "Just so you\'re aware — asking about prior contractors\' status is a flagged query. It\'s noted. It doesn\'t need to happen again."',
+      ? 'Renn calls back, warmer this time. "Your numbers are ahead of projection. Whatever you\'re doing, keep doing it, I\'m flagging your file as low-maintenance, which out here is the nicest thing anyone will say about you."'
+      : 'Renn calls back, colder this time. "Just so you\'re aware, asking about prior contractors\' status is a flagged query. It\'s noted. It doesn\'t need to happen again."',
     choices: [
       {
         label: 'Acknowledge and end the call',
@@ -104,7 +104,7 @@ export const MINING_EVENTS = [
     once: true,
     ambient: true,
     requires: (state) => state.flags.mining_unlocked && state.flags.ore_mined_once,
-    title: 'Drone Return — Anomalous Reading',
+    title: 'Drone Return, Anomalous Reading',
     text: 'One of the drones comes back from the south vein with a sample that doesn\'t match any catalog entry KESTREL has. Doesn\'t register on standard spectrometry. Faintly warm to the touch, which a rock should not be.',
     choices: [
       {

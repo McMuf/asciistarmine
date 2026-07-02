@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
+  <canvas id="starfield"></canvas>
   <div id="game">
     <header id="header">
       <h1>ASCIISTARMINE</h1>
@@ -52,6 +53,30 @@
         <h2>CODEX</h2>
         <div id="codex-entries"></div>
         <button id="codex-close">[ close ]</button>
+      </div>
+    </div>
+
+    <div id="title-modal" class="hidden">
+      <div id="title-modal-box">
+        <h1 class="title-heading">ASCIISTARMINE</h1>
+        <p class="title-hook">You signed a contract you didn't finish reading, for a company that mines
+        the belt for whatever's underneath it. Fourteen months are missing from your memory. The rig
+        still owes the Company more than you'll ever mine back.</p>
+        <button id="title-begin">[ begin contract ]</button>
+      </div>
+    </div>
+
+    <div id="tutorial-modal" class="hidden">
+      <div id="tutorial-modal-box">
+        <h2>BEFORE YOU START</h2>
+        <ul class="tutorial-list">
+          <li><strong>STORES</strong> (left) are your resources. Power and oxygen drain constantly. Keep them above zero.</li>
+          <li><strong>ACTIONS</strong> (center) are things you can do. Some cost resources, most have a cooldown before you can use them again.</li>
+          <li><strong>LOG</strong> (below actions) records everything that's happened, most recent on top.</li>
+          <li>When a box pops up over everything else, that's an event. Read it and pick a choice. Choices matter and some come back later.</li>
+          <li><strong>REPUTATION</strong> and <strong>COMPANIONS</strong> (right) fill in as you meet people and make choices. The <strong>CODEX</strong> button appears there once you've found something worth reading.</li>
+        </ul>
+        <button id="tutorial-close">[ understood, let's go ]</button>
       </div>
     </div>
   </div>

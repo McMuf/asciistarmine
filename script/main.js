@@ -2,6 +2,7 @@ import { stateManager } from './state_manager.js';
 import { notifications } from './notifications.js';
 import { engine } from './engine.js';
 import { ActionButton } from './button.js';
+import { initStarfield } from './starfield.js';
 import { MATERIALS } from '../content/materials.js';
 import { FACTIONS, factionStanding } from '../content/factions.js';
 import { COMPANIONS, companionLine } from '../content/companions.js';
@@ -25,12 +26,12 @@ const codexCloseBtn = document.getElementById('codex-close');
 const stageLabel = document.getElementById('stage-label');
 
 const ENDING_LABELS = {
-  consortium_release: 'STORY COMPLETE — THE DEEP SIGNAL, RELEASED',
-  consortium_destroy: 'STORY COMPLETE — THE DEEP SIGNAL, DESTROYED',
-  consortium_merge: 'STORY COMPLETE — THE DEEP SIGNAL, CARRIED',
-  union_free_rig: 'STORY COMPLETE — FREE RIG',
-  pirates_long_black: 'STORY COMPLETE — THE LONG BLACK',
-  company_ascension: 'STORY COMPLETE — THE PROMOTION'
+  consortium_release: 'STORY COMPLETE: THE DEEP SIGNAL, RELEASED',
+  consortium_destroy: 'STORY COMPLETE: THE DEEP SIGNAL, DESTROYED',
+  consortium_merge: 'STORY COMPLETE: THE DEEP SIGNAL, CARRIED',
+  union_free_rig: 'STORY COMPLETE: FREE RIG',
+  pirates_long_black: 'STORY COMPLETE: THE LONG BLACK',
+  company_ascension: 'STORY COMPLETE: THE PROMOTION'
 };
 
 const actions = [
@@ -58,7 +59,7 @@ const actions = [
   }),
   new ActionButton({
     id: 'drill_iron',
-    label: 'Deploy Drill — Iron Vein',
+    label: 'Deploy Drill, Iron Vein',
     cost: { power: 2 },
     cooldownTicks: 5,
     visible: (state) => state.flags.mining_unlocked,
@@ -70,7 +71,7 @@ const actions = [
   }),
   new ActionButton({
     id: 'drill_nickel',
-    label: 'Deploy Drill — Nickel Vein',
+    label: 'Deploy Drill, Nickel Vein',
     cost: { power: 2 },
     cooldownTicks: 5,
     visible: (state) => state.flags.mining_unlocked,
@@ -93,7 +94,7 @@ const actions = [
   }),
   new ActionButton({
     id: 'launch_expedition_derelict',
-    label: 'Launch Expedition Pod — Derelict Rig',
+    label: 'Launch Expedition Pod, Derelict Rig',
     cost: { power: 5, o2: 5 },
     cooldownTicks: 999999,
     visible: (state) => state.flags.derelict_bearing_known && !state.flags.expedition_launched,
@@ -126,7 +127,7 @@ function renderActions() {
   if (stateManager.state.flags.game_complete) {
     const done = document.createElement('div');
     done.style.color = 'var(--dim)';
-    done.textContent = '— contract concluded —';
+    done.textContent = '[ contract concluded ]';
     actionsList.appendChild(done);
     return;
   }
@@ -172,7 +173,7 @@ function renderCompanions() {
     const wrap = document.createElement('div');
     wrap.className = 'companion-row';
     wrap.style.display = 'block';
-    wrap.innerHTML = `<strong>${c.name}</strong> <span style="color:var(--dim)">— ${c.role}</span>${line ? `<div style="margin-top:0.2rem;">${line}</div>` : ''}`;
+    wrap.innerHTML = `<strong>${c.name}</strong> <span style="color:var(--dim)">(${c.role})</span>${line ? `<div style="margin-top:0.2rem;">${line}</div>` : ''}`;
     companionList.appendChild(wrap);
   }
 }
@@ -233,9 +234,34 @@ codexOpenBtn.onclick = () => {
 };
 codexCloseBtn.onclick = () => codexModal.classList.add('hidden');
 
+const titleModal = document.getElementById('title-modal');
+const titleBeginBtn = document.getElementById('title-begin');
+const tutorialModal = document.getElementById('tutorial-modal');
+const tutorialCloseBtn = document.getElementById('tutorial-close');
+
+function startGame() {
+  stateManager.setFlag('intro_complete', true);
+  stateManager.save();
+  engine.init();
+}
+
 stateManager.onChange(renderAll);
 notifications.onChange(renderLog);
 engine.onEventChange = renderEventModal;
 
 renderAll();
-engine.init();
+initStarfield();
+
+if (stateManager.getFlag('intro_complete')) {
+  startGame();
+} else {
+  titleModal.classList.remove('hidden');
+  titleBeginBtn.onclick = () => {
+    titleModal.classList.add('hidden');
+    tutorialModal.classList.remove('hidden');
+  };
+  tutorialCloseBtn.onclick = () => {
+    tutorialModal.classList.add('hidden');
+    startGame();
+  };
+}

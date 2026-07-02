@@ -29,7 +29,7 @@ class Engine {
     s.tick += 1;
     tickCooldowns();
 
-    // Survival drain — power is the core clock, o2 the secondary one.
+    // Survival drain, power is the core clock, o2 the secondary one.
     stateManager.addStore('power', -0.05);
     stateManager.addStore('o2', -0.02);
 

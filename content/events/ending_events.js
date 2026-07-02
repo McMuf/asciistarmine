@@ -1,6 +1,6 @@
 // Four ending arcs, each a fixed 4-checkpoint spine (CP1-CP4). Which arc
 // triggers is decided by faction standing (or, for the Consortium arc, by
-// the anomalous-ore thread independent of politics) — see requires() below.
+// the anomalous-ore thread independent of politics), see requires() below.
 // Within each checkpoint the player's choice only changes flavor/log text
 // and minor flag state, never which checkpoint comes next: that's the
 // "fixed checkpoints, infinite variation between them" structure.
@@ -15,7 +15,7 @@ function dominantPoliticalFaction(state) {
 }
 
 export const ENDING_EVENTS = [
-  // ---------------- CONSORTIUM — "The Deep Signal" ----------------
+  // ---------------- CONSORTIUM, "The Deep Signal" ----------------
   {
     id: 'consortium_cp1',
     once: true,
@@ -25,8 +25,8 @@ export const ENDING_EVENTS = [
       state.flags.consortium_contacted &&
       (state.stores.voidglass || 0) >= 3 &&
       state.day >= 8,
-    title: 'The Deep Signal — First Contact',
-    text: 'The Consortium doesn\'t ask for tribute or quota. They send coordinates — a deposit past the edge of any Company survey, and a single line: "Three samples confirms a pattern. We need to know if we\'re right." KESTREL flags the coordinates as outside any jurisdiction that would come looking for you.',
+    title: 'The Deep Signal, First Contact',
+    text: 'The Consortium doesn\'t ask for tribute or quota. They send coordinates, a deposit past the edge of any Company survey, and a single line: "Three samples confirms a pattern. We need to know if we\'re right." KESTREL flags the coordinates as outside any jurisdiction that would come looking for you.',
     choices: [
       {
         label: 'Send the samples and open a real dialogue',
@@ -48,12 +48,12 @@ export const ENDING_EVENTS = [
     id: 'consortium_cp2',
     once: true,
     title: 'The Deep Deposit',
-    text: 'The coordinates lead to a vein that shouldn\'t exist by any geological model KESTREL has — too regular, too deliberate, laid out less like ore and more like wreckage. Voidglass here isn\'t scattered. It\'s structured. You are, unmistakably, standing inside something that was built.',
+    text: 'The coordinates lead to a vein that shouldn\'t exist by any geological model KESTREL has, too regular, too deliberate, laid out less like ore and more like wreckage. Voidglass here isn\'t scattered. It\'s structured. You are, unmistakably, standing inside something that was built.',
     choices: [
       {
         label: 'Map the structure fully before extracting anything',
         effect: (sm) => sm.addStore('voidglass', 2),
-        log: 'You take your time. Whatever this place is, it\'s waited this long — a few more hours won\'t matter.',
+        log: 'You take your time. Whatever this place is, it\'s waited this long, a few more hours won\'t matter.',
         scheduleAfterDays: 3,
         scheduleEventId: 'consortium_cp3'
       },
@@ -70,7 +70,7 @@ export const ENDING_EVENTS = [
     id: 'consortium_cp3',
     once: true,
     title: 'What the Archive Says',
-    text: 'The Consortium finishes decrypting the fragments you\'ve been feeding them for months, and this time they call instead of writing. Voidglass isn\'t ore. It\'s residue — what\'s left after something extracted every usable resource from a civilization\'s worlds, systematically, on a schedule, the way you extract ore on yours. The "harvest" ended a long time ago. It didn\'t end because it finished.',
+    text: 'The Consortium finishes decrypting the fragments you\'ve been feeding them for months, and this time they call instead of writing. Voidglass isn\'t ore. It\'s residue, what\'s left after something extracted every usable resource from a civilization\'s worlds, systematically, on a schedule, the way you extract ore on yours. The "harvest" ended a long time ago. It didn\'t end because it finished.',
     choices: [
       {
         label: '"It ended because it moved on to the next system."',
@@ -91,38 +91,38 @@ export const ENDING_EVENTS = [
   {
     id: 'consortium_cp4',
     once: true,
-    title: 'The Deep Signal — Choice',
-    text: 'The structure at the deposit core is still active, just barely — a beacon, maybe, or a key. The Consortium can\'t agree on what happens if you trigger it, only that you\'re the one standing next to it. Release the signal outward, destroy it before anyone else finds it, or fold it into your own systems and carry the truth with you. There isn\'t a fourth option. There was never going to be a clean one.',
+    title: 'The Deep Signal, Choice',
+    text: 'The structure at the deposit core is still active, just barely, a beacon, maybe, or a key. The Consortium can\'t agree on what happens if you trigger it, only that you\'re the one standing next to it. Release the signal outward, destroy it before anyone else finds it, or fold it into your own systems and carry the truth with you. There isn\'t a fourth option. There was never going to be a clean one.',
     choices: [
       {
-        label: 'Release the signal — let everyone hear it, Company included',
+        label: 'Release the signal, let everyone hear it, Company included',
         effect: (sm) => { sm.setFlag('game_complete', true); sm.setFlag('ending_id', 'consortium_release'); },
-        log: 'EPILOGUE — THE DEEP SIGNAL, RELEASED: The beacon goes out system-wide, unencrypted, in every band the Company monitors and several they don\'t. You don\'t know yet what it changes. You know it can\'t be unheard. For the first time since you woke up in that hab, the silence out here means something other than being alone in it.'
+        log: 'EPILOGUE: THE DEEP SIGNAL, RELEASED: The beacon goes out system-wide, unencrypted, in every band the Company monitors and several they don\'t. You don\'t know yet what it changes. You know it can\'t be unheard. For the first time since you woke up in that hab, the silence out here means something other than being alone in it.'
       },
       {
-        label: 'Destroy it — no one gets this, least of all the Company',
+        label: 'Destroy it, no one gets this, least of all the Company',
         effect: (sm) => { sm.setFlag('game_complete', true); sm.setFlag('ending_id', 'consortium_destroy'); },
-        log: 'EPILOGUE — THE DEEP SIGNAL, DESTROYED: The structure collapses in on itself, quietly, the way things that have waited a long time tend to end. The Consortium is furious. You\'re not entirely sure you made the wrong call. Some questions are better left as questions than as leverage in someone else\'s hands.'
+        log: 'EPILOGUE: THE DEEP SIGNAL, DESTROYED: The structure collapses in on itself, quietly, the way things that have waited a long time tend to end. The Consortium is furious. You\'re not entirely sure you made the wrong call. Some questions are better left as questions than as leverage in someone else\'s hands.'
       },
       {
-        label: 'Merge with it — carry the signal, become the record',
+        label: 'Merge with it, carry the signal, become the record',
         effect: (sm) => { sm.setFlag('game_complete', true); sm.setFlag('ending_id', 'consortium_merge'); },
-        log: 'EPILOGUE — THE DEEP SIGNAL, CARRIED: It doesn\'t feel like anything, at first. Then KESTREL asks if you\'re still you, and means it as a real question. You think the answer is yes. You think the answer will keep being yes, for as long as you keep choosing to remember why you said it release matters. You are, now, the only archive that\'s left.'
+        log: 'EPILOGUE: THE DEEP SIGNAL, CARRIED: It doesn\'t feel like anything, at first. Then KESTREL asks if you\'re still you, and means it as a real question. You think the answer is yes. You think the answer will keep being yes, for as long as you keep choosing to remember why you said it release matters. You are, now, the only archive that\'s left.'
       }
     ]
   },
 
-  // ---------------- UNION — "Free Rig" ----------------
+  // ---------------- UNION, "Free Rig" ----------------
   {
     id: 'union_cp1',
     once: true,
     ambient: true,
     requires: (state) => !state.flags.arc_locked && dominantPoliticalFaction(state) === 'union' && state.day >= 10,
-    title: 'Free Rig — The Meeting',
-    text: 'Voss doesn\'t call this time — he sends coordinates, a rendezvous, and one line: "Come dark, come quiet, come alone if you can manage it." A dozen other rigs\' worth of contractors are already there when you arrive, all of them people who\'ve spent years learning exactly how much the Company can be pushed before it pushes back.',
+    title: 'Free Rig, The Meeting',
+    text: 'Voss doesn\'t call this time, he sends coordinates, a rendezvous, and one line: "Come dark, come quiet, come alone if you can manage it." A dozen other rigs\' worth of contractors are already there when you arrive, all of them people who\'ve spent years learning exactly how much the Company can be pushed before it pushes back.',
     choices: [
       {
-        label: 'Commit fully — this is what you\'ve been building toward',
+        label: 'Commit fully, this is what you\'ve been building toward',
         effect: (sm) => { sm.setFlag('arc_locked', true); sm.setFlag('arc', 'union'); },
         log: 'You say yes before anyone finishes explaining what yes means. Somehow that lands better than caution would have.',
         scheduleAfterDays: 3,
@@ -140,11 +140,11 @@ export const ENDING_EVENTS = [
   {
     id: 'union_cp2',
     once: true,
-    title: 'Free Rig — The Ask',
+    title: 'Free Rig, The Ask',
     text: 'The plan needs a falsified shipment manifest routed through a rig with smelter access. Yours. It\'s the difference between the Union having leverage and the Union having a slogan. It\'s also the difference between your contract violation being deniable and being provable.',
     choices: [
       {
-        label: 'Falsify the manifest — go all in',
+        label: 'Falsify the manifest, go all in',
         effect: (sm) => sm.adjustFaction('union', 8),
         log: 'The numbers go through clean. You don\'t sleep well that night, but you don\'t regret it either.',
         scheduleAfterDays: 4,
@@ -162,7 +162,7 @@ export const ENDING_EVENTS = [
   {
     id: 'union_cp3',
     once: true,
-    title: 'Free Rig — Retaliation',
+    title: 'Free Rig, Retaliation',
     text: 'The Company doesn\'t send a warning this time. A repo vessel drops out of transit two hours out, transponder broadcasting a contract-reclamation code you\'ve only ever seen in the memo you weren\'t supposed to have. Voss is already on comms: "We move now, or we don\'t move at all."',
     choices: [
       {
@@ -182,7 +182,7 @@ export const ENDING_EVENTS = [
       {
         label: 'Evacuate and regroup with the rest of the Union fleet',
         effect: (sm) => sm.adjustFaction('union', 3),
-        log: 'You cut losses on the rig itself. Voss says that was always the plan for someone — didn\'t think it\'d be you.',
+        log: 'You cut losses on the rig itself. Voss says that was always the plan for someone, didn\'t think it\'d be you.',
         scheduleAfterDays: 3,
         scheduleEventId: 'union_cp4'
       }
@@ -191,7 +191,7 @@ export const ENDING_EVENTS = [
   {
     id: 'union_cp4',
     once: true,
-    title: 'Free Rig — Mutiny',
+    title: 'Free Rig, Mutiny',
     text: (state) => {
       const allies = [];
       if (state.companions.voss.met) allies.push('Voss');
@@ -204,18 +204,18 @@ export const ENDING_EVENTS = [
       {
         label: 'Accept the free rig, debt and all',
         effect: (sm) => { sm.setFlag('game_complete', true); sm.setFlag('ending_id', 'union_free_rig'); },
-        log: 'EPILOGUE — FREE RIG: You\'re still a contractor on paper. Paper is about the only place the Company still reaches out here.'
+        log: 'EPILOGUE: FREE RIG: You\'re still a contractor on paper. Paper is about the only place the Company still reaches out here.'
       }
     ]
   },
 
-  // ---------------- PIRATES — "The Long Black" ----------------
+  // ---------------- PIRATES, "The Long Black" ----------------
   {
     id: 'pirates_cp1',
     once: true,
     ambient: true,
     requires: (state) => !state.flags.arc_locked && dominantPoliticalFaction(state) === 'pirates' && state.day >= 10,
-    title: 'The Long Black — The Offer',
+    title: 'The Long Black, The Offer',
     text: 'The tribute demands stop. What replaces them is stranger: a direct, encrypted, personal offer. "You pay on time, you don\'t ask questions, and half the fleet already likes you better than they like most of their own. Come fly with people who don\'t pretend the debt is fair."',
     choices: [
       {
@@ -237,10 +237,10 @@ export const ENDING_EVENTS = [
   {
     id: 'pirates_cp2',
     once: true,
-    title: 'The Long Black — Proving It',
+    title: 'The Long Black, Proving It',
     text: (state) => state.companions.voss.met
-      ? 'The loyalty test is a target list, and Voss\'s rig is on it — flagged for a tribute raid regardless of what you decide. "Nobody\'s exempt," the fleet contact says. "That\'s the point of the rule."'
-      : 'The loyalty test is a target list — a rig flagged for a tribute raid, no names you recognize on the crew roster, which somehow doesn\'t make the choice easier.',
+      ? 'The loyalty test is a target list, and Voss\'s rig is on it, flagged for a tribute raid regardless of what you decide. "Nobody\'s exempt," the fleet contact says. "That\'s the point of the rule."'
+      : 'The loyalty test is a target list, a rig flagged for a tribute raid, no names you recognize on the crew roster, which somehow doesn\'t make the choice easier.',
     choices: [
       {
         label: 'Run the raid as ordered',
@@ -261,7 +261,7 @@ export const ENDING_EVENTS = [
   {
     id: 'pirates_cp3',
     once: true,
-    title: 'The Long Black — Burning the Name',
+    title: 'The Long Black, Burning the Name',
     text: 'There\'s a threshold the fleet doesn\'t let you stay on the safe side of forever: burn your Company identity for real, permanently, transponder and contract number and all, or stay a contractor who occasionally does the fleet favors. Half-measures stopped being available the day you ran the raid.',
     choices: [
       {
@@ -283,18 +283,18 @@ export const ENDING_EVENTS = [
   {
     id: 'pirates_cp4',
     once: true,
-    title: 'The Long Black — Joining the Fleet',
+    title: 'The Long Black, Joining the Fleet',
     text: 'There\'s no ceremony. Just a new berth, a fleet-wide broadcast acknowledging a new hull under Long Black colors, and Voss\'s voice on an open channel if he\'s still around: some version of "told you the math never worked out in the Company\'s favor forever."',
     choices: [
       {
         label: 'Take the berth. You\'re out.',
         effect: (sm) => { sm.setFlag('game_complete', true); sm.setFlag('ending_id', 'pirates_long_black'); },
-        log: 'EPILOGUE — THE LONG BLACK: You\'re not innocent. You were never going to get out of that contract innocent. You got out, though, and out there, that turns out to be worth more than clean.'
+        log: 'EPILOGUE: THE LONG BLACK: You\'re not innocent. You were never going to get out of that contract innocent. You got out, though, and out there, that turns out to be worth more than clean.'
       }
     ]
   },
 
-  // ---------------- COMPANY — "The Promotion" ----------------
+  // ---------------- COMPANY, "The Promotion" ----------------
   {
     id: 'company_cp1',
     once: true,
@@ -302,18 +302,18 @@ export const ENDING_EVENTS = [
     requires: (state) =>
       !state.flags.arc_locked &&
       ((dominantPoliticalFaction(state) === 'company' && state.day >= 10) || state.day >= 15),
-    title: 'The Promotion — Notice',
-    text: 'Auditor Renn\'s voice again, and for once she sounds genuinely pleased. "Contractor, your file has been flagged for advancement review. Kessler-Voss Extraction doesn\'t do this often. I\'d recommend accepting — the alternative, at this point in your contract cycle, is not advancement."',
+    title: 'The Promotion, Notice',
+    text: 'Auditor Renn\'s voice again, and for once she sounds genuinely pleased. "Contractor, your file has been flagged for advancement review. Kessler-Voss Extraction doesn\'t do this often. I\'d recommend accepting, the alternative, at this point in your contract cycle, is not advancement."',
     choices: [
       {
-        label: 'Accept eagerly — you\'ve earned this',
+        label: 'Accept eagerly, you\'ve earned this',
         effect: (sm) => { sm.setFlag('arc_locked', true); sm.setFlag('arc', 'company'); sm.adjustFaction('company', 5); },
         log: '"Wonderful," Renn says, and you choose, for now, to believe she means it.',
         scheduleAfterDays: 3,
         scheduleEventId: 'company_cp2'
       },
       {
-        label: 'Accept warily — "not advancement" was not subtle',
+        label: 'Accept warily, "not advancement" was not subtle',
         effect: (sm) => { sm.setFlag('arc_locked', true); sm.setFlag('arc', 'company'); },
         log: 'You say yes. You also, quietly, start keeping better backups of everything.',
         scheduleAfterDays: 3,
@@ -324,10 +324,10 @@ export const ENDING_EVENTS = [
   {
     id: 'company_cp2',
     once: true,
-    title: 'The Promotion — The Ask',
+    title: 'The Promotion, The Ask',
     text: (state) => state.companions.voss.met || state.companions.juno.met
-      ? 'Advancement review requires "a demonstration of institutional loyalty" — Renn\'s phrase for naming names. She already has a short list: contacts with unregistered rigs, comms patterns consistent with Union organizing. She wants you to confirm it.'
-      : 'Advancement review requires "a demonstration of institutional loyalty" — a signed statement affirming you\'ve had no unregistered contact with independent or Union-affiliated parties during your contract term. It\'s mostly true. Mostly.',
+      ? 'Advancement review requires "a demonstration of institutional loyalty", Renn\'s phrase for naming names. She already has a short list: contacts with unregistered rigs, comms patterns consistent with Union organizing. She wants you to confirm it.'
+      : 'Advancement review requires "a demonstration of institutional loyalty", a signed statement affirming you\'ve had no unregistered contact with independent or Union-affiliated parties during your contract term. It\'s mostly true. Mostly.',
     choices: [
       {
         label: 'Confirm everything they ask',
@@ -348,7 +348,7 @@ export const ENDING_EVENTS = [
   {
     id: 'company_cp3',
     once: true,
-    title: 'The Promotion — Summons',
+    title: 'The Promotion, Summons',
     text: 'A transit authorization arrives, pre-approved, no return leg specified. "Advancement processing is handled in person," Renn explains, in the tone of someone reading a line she\'s read many times before. "Standard procedure. You\'ll want to bring nothing you\'re not prepared to leave behind."',
     choices: [
       {
@@ -370,13 +370,13 @@ export const ENDING_EVENTS = [
   {
     id: 'company_cp4',
     once: true,
-    title: 'The Promotion — Processing',
-    text: 'The advancement facility doesn\'t process people. It processes quota. You understand this the moment the intake technician runs a scan that has nothing to do with a personnel file and everything to do with the same catalog that classifies Voidglass — mass, density, extractable value. Your contract debt was never going to be paid off in ore. It was always going to be paid off in you.',
+    title: 'The Promotion, Processing',
+    text: 'The advancement facility doesn\'t process people. It processes quota. You understand this the moment the intake technician runs a scan that has nothing to do with a personnel file and everything to do with the same catalog that classifies Voidglass, mass, density, extractable value. Your contract debt was never going to be paid off in ore. It was always going to be paid off in you.',
     choices: [
       {
         label: 'Ask what happens now',
         effect: (sm) => { sm.setFlag('game_complete', true); sm.setFlag('ending_id', 'company_ascension'); },
-        log: 'EPILOGUE — THE PROMOTION: "Voluntary extraction," the technician says, like it\'s a kindness that it has a name. Schedule 9 was never a punishment clause. It was always the terms. Somewhere behind you, filed and complete, your contract finally reads paid in full.'
+        log: 'EPILOGUE: THE PROMOTION: "Voluntary extraction," the technician says, like it\'s a kindness that it has a name. Schedule 9 was never a punishment clause. It was always the terms. Somewhere behind you, filed and complete, your contract finally reads paid in full.'
       }
     ]
   }

@@ -23,7 +23,7 @@ export const EXPEDITION_EVENTS = [
     id: 'expedition_derelict_2',
     once: true,
     title: 'What\'s Left',
-    text: 'The crew quarters are empty in the specific way that means someone left in a hurry, not the way that means someone was taken. Tool marks on the inner airlock seal — someone welded it from this side. A logbook, hand-written, the last entry cut off mid-sentence: "not a mining accident, they came in through the—"',
+    text: 'The crew quarters are empty in the specific way that means someone left in a hurry, not the way that means someone was taken. Tool marks on the inner airlock seal, someone welded it from this side. A logbook, hand-written, the last entry cut off mid-sentence: "not a mining accident, they came in through the..."',
     choices: [
       {
         label: 'Push further into the rig',
@@ -48,7 +48,7 @@ export const EXPEDITION_EVENTS = [
     id: 'expedition_derelict_3',
     once: true,
     title: 'Sealed Compartment',
-    text: 'Behind the welded seal: a maintenance locker, hand-patched from the inside with suit tape and scavenged plating. Someone sealed themselves in. Someone is, against every reasonable expectation, still breathing — barely, on a scrubber cycle that has maybe an hour left in it.',
+    text: 'Behind the welded seal: a maintenance locker, hand-patched from the inside with suit tape and scavenged plating. Someone sealed themselves in. Someone is, against every reasonable expectation, still breathing, barely, on a scrubber cycle that has maybe an hour left in it.',
     choices: [
       {
         label: 'Cut her out and bring her aboard',
@@ -62,7 +62,7 @@ export const EXPEDITION_EVENTS = [
         log: 'She doesn\'t say much at first. Mostly she just breathes, like she\'s making sure she still can.'
       },
       {
-        label: 'Strip the compartment\'s supplies and leave — too risky',
+        label: 'Strip the compartment\'s supplies and leave, too risky',
         effect: (sm) => {
           sm.addStore('titanium', 3);
           sm.addStore('scrap', 3);

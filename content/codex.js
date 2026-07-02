@@ -1,5 +1,5 @@
 // Codex entries are unlocked explicitly by event effects (engine.unlockCodexEntry),
-// not by silently-checked conditions — keeps unlock timing authored, not implicit.
+// not by silently-checked conditions, keeps unlock timing authored, not implicit.
 
 export const CODEX = [
   {
@@ -9,18 +9,18 @@ export const CODEX = [
   },
   {
     id: 'tenant_log_1',
-    title: 'Personal Log — Unlisted Crew, Entry 1',
+    title: 'Personal Log, Unlisted Crew, Entry 1',
     body: '"Second week on the rig. KESTREL\'s got a personality under the boilerplate, which is more than I can say for my last supervisor. Power\'s stable. Quota\'s tight but doable. Nothing weird yet."'
   },
   {
     id: 'tenant_log_2',
-    title: 'Personal Log — Unlisted Crew, Entry 2',
+    title: 'Personal Log, Unlisted Crew, Entry 2',
     body: '"Found something in the south vein that isn\'t in the survey data. Didn\'t report it. Probably nothing. Writing this down so future-me remembers I said \'probably.\'"'
   },
   {
     id: 'distress_fragment',
-    title: 'Comms Intercept — Garbled',
-    body: '"—not a mining accident, repeat, this was not— [signal lost] —if anyone is still assigned to this sector, do not report your position to—" The rest is static. Timestamp is fourteen months old.'
+    title: 'Comms Intercept, Garbled',
+    body: '"...not a mining accident, repeat, this was not... [signal lost] ...if anyone is still assigned to this sector, do not report your position to..." The rest is static. Timestamp is fourteen months old.'
   },
   {
     id: 'company_memo_termination',
@@ -29,22 +29,22 @@ export const CODEX = [
   },
   {
     id: 'anomaly_first_sample',
-    title: 'Drone Survey Note — Unclassified Sample',
+    title: 'Drone Survey Note, Unclassified Sample',
     body: 'KESTREL\'s notes, appended automatically: "Sample registers no known crystalline structure. Thermal signature inconsistent with ambient rock temperature by a margin no passive process explains. Recommend flagging for Consortium review." The recommendation was not acted on. By either of you.'
   },
   {
     id: 'derelict_logbook',
     title: 'Derelict Rig Logbook, Final Entry',
-    body: '"—not a mining accident, they came in through the—" The rest of the page is torn out, not burned, not corroded. Torn. By hand. Whoever wrote this had time to decide what you weren\'t allowed to read.'
+    body: '"...not a mining accident, they came in through the..." The rest of the page is torn out, not burned, not corroded. Torn. By hand. Whoever wrote this had time to decide what you weren\'t allowed to read.'
   },
   {
     id: 'juno_found',
     title: 'Personal Note, Recovered',
-    body: 'Tucked in the sealed compartment, written on the back of a supply manifest: "If anyone reads this — I welded the door from the inside on purpose. It wasn\'t pirates. I need someone to believe that before I need anything else." It isn\'t signed. It didn\'t need to be.'
+    body: 'Tucked in the sealed compartment, written on the back of a supply manifest: "If anyone reads this, I welded the door from the inside on purpose. It wasn\'t pirates. I need someone to believe that before I need anything else." It isn\'t signed. It didn\'t need to be.'
   },
   {
     id: 'archive_truth',
-    title: 'Consortium Archive — Decrypted Summary',
+    title: 'Consortium Archive, Decrypted Summary',
     body: 'Voidglass is residue: what\'s left after a system-spanning process extracted every usable resource from a civilization\'s worlds, systematically, on a schedule, then moved on. Not a war. Not a disaster. A harvest, completed. The unsettling part isn\'t that it happened once. It\'s that nothing in the data suggests it was the only time.'
   }
 ];

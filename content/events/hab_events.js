@@ -3,7 +3,19 @@ export const HAB_EVENTS = [
     id: 'wake',
     once: true,
     title: 'Cycle Start',
-    text: 'Cold. Dark. A red emergency glyph pulses on the ceiling panel above your bunk. Somewhere under the floor plating, the reactor is idling at minimum — enough to keep you breathing, not enough to do anything else. Your contract terminal is dead. Your suit log says fourteen months have passed since the last entry you remember writing.',
+    text: 'Cold. Dark. A red emergency glyph pulses on the ceiling panel above your bunk.',
+    choices: [
+      {
+        label: 'Sit up and look around',
+        next: 'wake_2'
+      }
+    ]
+  },
+  {
+    id: 'wake_2',
+    once: true,
+    title: 'Cycle Start',
+    text: 'Somewhere under the floor plating, the reactor is idling at minimum, enough to keep you breathing and nothing else. Your contract terminal is dead. Your suit log says fourteen months have passed since the last entry you remember writing.',
     choices: [
       {
         label: 'Force the reactor online',
@@ -41,7 +53,7 @@ export const HAB_EVENTS = [
     id: 'kestrel_first_log',
     once: true,
     title: 'KESTREL',
-    text: '"I am not authorized to answer that directly." A pause — long, for a machine. "I am, however, authorized to leave their personal logs in local storage, which I never got around to purging. Draw your own conclusions."',
+    text: '"I am not authorized to answer that directly." A pause, long, for a machine. "I am, however, authorized to leave their personal logs in local storage, which I never got around to purging. Draw your own conclusions."',
     choices: [
       {
         label: 'Pull the logs',
@@ -73,7 +85,7 @@ export const HAB_EVENTS = [
     ambient: true,
     requires: (state) => state.stores.power >= 8,
     title: 'Comms Ping',
-    text: 'KESTREL flags an old, badly corrupted transmission still looping in the comms buffer — fourteen months old, same as everything else. Most of it is static. What survives sounds like a warning.',
+    text: 'KESTREL flags an old, badly corrupted transmission still looping in the comms buffer, fourteen months old, same as everything else. Most of it is static. What survives sounds like a warning.',
     choices: [
       {
         label: 'Isolate and investigate the signal (costs power)',
@@ -103,7 +115,7 @@ export const HAB_EVENTS = [
     once: true,
     title: 'Three Days Later',
     text: (state) => state.flags.investigated_distress
-      ? 'The cleaned-up signal resolves enough to give you a rough bearing — a derelict rig, closer than you\'d like, still broadcasting on a Company emergency band that Company ships have stopped answering.'
+      ? 'The cleaned-up signal resolves enough to give you a rough bearing, a derelict rig, closer than you\'d like, still broadcasting on a Company emergency band that Company ships have stopped answering.'
       : 'KESTREL mentions, almost offhand, that the same distress signal you logged as low-priority has gone quiet. Not resolved. Just... stopped.',
     choices: [
       {
