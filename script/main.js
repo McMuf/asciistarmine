@@ -45,15 +45,53 @@ const actions = [
       sm.addStore('o2', 2);
       notifications.push('The cracker pulls a little water and a little air out of the sublayer ice.');
     }
+  }),
+  new ActionButton({
+    id: 'drill_iron',
+    label: 'Deploy Drill — Iron Vein',
+    cost: { power: 2 },
+    cooldownTicks: 5,
+    visible: (state) => state.flags.mining_unlocked,
+    onClick: (state, sm) => {
+      sm.addStore('iron_ore', 2);
+      sm.setFlag('ore_mined_once', true);
+      notifications.push('Drone one comes back scarred and loaded with iron ore.');
+    }
+  }),
+  new ActionButton({
+    id: 'drill_nickel',
+    label: 'Deploy Drill — Nickel Vein',
+    cost: { power: 2 },
+    cooldownTicks: 5,
+    visible: (state) => state.flags.mining_unlocked,
+    onClick: (state, sm) => {
+      sm.addStore('nickel_ore', 1);
+      sm.setFlag('ore_mined_once', true);
+      notifications.push('Drone two returns with a lighter, nickel-heavy haul.');
+    }
+  }),
+  new ActionButton({
+    id: 'run_smelter',
+    label: 'Run Smelter (2 iron, 1 nickel)',
+    cost: { power: 1, iron_ore: 2, nickel_ore: 1 },
+    cooldownTicks: 3,
+    visible: (state) => state.flags.mining_unlocked,
+    onClick: (state, sm) => {
+      sm.addStore('steel', 1);
+      notifications.push('The smelter cooks the batch down into a single steel billet.');
+    }
   })
 ];
 
+const ALWAYS_VISIBLE_STORES = ['power', 'o2'];
+
 function renderStores() {
   storesList.innerHTML = '';
-  const visibleIds = ['power', 'o2', 'water', 'scrap'];
-  for (const id of visibleIds) {
-    const amount = stateManager.state.stores[id] || 0;
-    if (amount <= 0 && id !== 'power' && id !== 'o2') continue;
+  const stores = stateManager.state.stores;
+  const ids = new Set([...ALWAYS_VISIBLE_STORES, ...Object.keys(stores)]);
+  for (const id of ids) {
+    const amount = stores[id] || 0;
+    if (amount <= 0 && !ALWAYS_VISIBLE_STORES.includes(id)) continue;
     const material = MATERIALS.find((m) => m.id === id);
     const row = document.createElement('div');
     row.className = 'store-row';

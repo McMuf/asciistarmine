@@ -30,7 +30,12 @@ event chain (distress signal — investigate vs. ignore, consequence lands 3
 in-game days later) demonstrating the chain system the rest of the game
 content builds on.
 
+**Checkpoint 2** — mining loop (drill iron/nickel, smelt into steel), Voss
+(neighboring rig, first contact) and Auditor Renn (Company handler) introduced
+with dialogue, a second branching chain (quota check-in — comply vs. push
+back, consequence 4 days later, first faction rep movement), and the first
+sighting of the anomalous ore (Voidglass).
+
 Planned next:
-- Checkpoint 2 — mining loop, wider event pool, remaining companions (Voss, Renn, Juno)
-- Checkpoint 3 — faction reputation consequences, expedition/wreck content
+- Checkpoint 3 — faction reputation consequences, expedition/wreck content, Juno
 - Checkpoint 4 — four ending arcs (Company / Union / Pirates / Consortium)

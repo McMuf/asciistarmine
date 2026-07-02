@@ -21,14 +21,22 @@ export const COMPANIONS = {
     name: 'Voss',
     role: 'Veteran miner, neighboring rig',
     bio: 'Been out here longer than the paperwork says is legal. Knows how to survive an audit.',
-    trustStages: []
+    trustStages: [
+      { min: 0, line: '"Name\'s Voss. Rig two hundred klicks spinward. Figured I\'d say hello before the Company does — trust me, you want to hear a human voice first."' },
+      { min: 5, line: '"You didn\'t report that anomaly, did you. Smart. Or stupid. Ask me again in a month."' },
+      { min: 15, line: '"Eleven years on contract. I have never once seen the debt go down. Do the math on that whenever you\'re ready to."' }
+    ]
   },
   renn: {
     id: 'renn',
     name: 'Auditor Renn',
     role: 'Company handler',
     bio: 'Voice on comms. Friendly at first. Never once physically present.',
-    trustStages: []
+    trustStages: [
+      { min: 0, line: '"Kessler-Voss Extraction, quota compliance division. This is a routine check-in — nothing to worry about, contractor."' },
+      { min: 5, line: '"You\'re easy to work with. I mean that. Keep it up and I\'ll make sure your file reflects it."' },
+      { min: 15, line: '"Between us — and I shouldn\'t say this — you\'re doing better than the projections had you. That matters more than you think."' }
+    ]
   },
   juno: {
     id: 'juno',

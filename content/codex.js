@@ -26,6 +26,11 @@ export const CODEX = [
     id: 'company_memo_termination',
     title: 'Internal Memo: Contract Lifecycle Policy',
     body: '"Effective immediately, underperforming contracts will be handled under the updated \'voluntary extraction\' framework. HR has requested this memo not be forwarded to active rig personnel." You were not supposed to have this.'
+  },
+  {
+    id: 'anomaly_first_sample',
+    title: 'Drone Survey Note — Unclassified Sample',
+    body: 'KESTREL\'s notes, appended automatically: "Sample registers no known crystalline structure. Thermal signature inconsistent with ambient rock temperature by a margin no passive process explains. Recommend flagging for Consortium review." The recommendation was not acted on. By either of you.'
   }
 ];
 
