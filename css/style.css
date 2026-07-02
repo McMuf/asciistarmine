@@ -1,0 +1,131 @@
+:root {
+  --bg: #0b0d0a;
+  --fg: #a8ffb0;
+  --dim: #4d6b52;
+  --amber: #ffb454;
+  --red: #ff6b6b;
+  --panel-bg: #101410;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+#header h1 {
+  margin: 0;
+  letter-spacing: 0.3em;
+  font-size: 1.4rem;
+}
+
+#stage-label {
+  color: var(--dim);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+#layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 260px;
+  gap: 1rem;
+  align-items: start;
+}
+
+.panel {
+  border: 1px solid var(--dim);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: var(--panel-bg);
+}
+
+.panel h2 {
+  font-size: 0.85rem;
+  color: var(--dim);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.1em;
+}
+
+button {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--dim);
+  font-family: inherit;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--fg);
+  background: rgba(168, 255, 176, 0.08);
+}
+
+button:disabled {
+  color: var(--dim);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.store-row, .faction-row, .companion-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 0.15rem 0;
+}
+
+#log-list {
+  max-height: 260px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+#log-list div {
+  padding: 0.15rem 0;
+  border-bottom: 1px dotted #1e241e;
+}
+
+.log-new { color: var(--amber); }
+
+.hidden { display: none !important; }
+
+#event-modal, #codex-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#event-modal-box, #codex-modal-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--fg);
+  padding: 1.5rem;
+  max-width: 520px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#event-title { color: var(--amber); margin-top: 0; }
+
+.codex-entry {
+  border-bottom: 1px solid var(--dim);
+  padding: 0.6rem 0;
+}
+
+.codex-entry h3 {
+  color: var(--amber);
+  font-size: 0.9rem;
+  margin: 0 0 0.3rem 0;
+}
+
+.codex-entry p { font-size: 0.85rem; margin: 0; }

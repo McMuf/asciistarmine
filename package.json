@@ -1,0 +1,14 @@
+{
+  "name": "asciistarmine",
+  "version": "0.1.0",
+  "description": "ASCII idle/adventure text game — interstellar mining, faction politics, four branching endings.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.21"
+  }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASCIISTARMINE</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="game">
+    <header id="header">
+      <h1>ASCIISTARMINE</h1>
+      <div id="stage-label">RIG-CONTRACT // HAB MODULE</div>
+    </header>
+
+    <main id="layout">
+      <section id="panel-stores" class="panel">
+        <h2>STORES</h2>
+        <div id="stores-list"></div>
+      </section>
+
+      <section id="panel-main">
+        <div id="panel-actions" class="panel">
+          <h2>ACTIONS</h2>
+          <div id="actions-list"></div>
+        </div>
+        <div id="panel-log" class="panel">
+          <h2>LOG</h2>
+          <div id="log-list"></div>
+        </div>
+      </section>
+
+      <section id="panel-side" class="panel">
+        <h2>REPUTATION</h2>
+        <div id="faction-list"></div>
+        <h2>COMPANIONS</h2>
+        <div id="companion-list"></div>
+        <button id="codex-open" style="display:none;">[ open codex ]</button>
+      </section>
+    </main>
+
+    <div id="event-modal" class="hidden">
+      <div id="event-modal-box">
+        <h2 id="event-title"></h2>
+        <p id="event-text"></p>
+        <div id="event-choices"></div>
+      </div>
+    </div>
+
+    <div id="codex-modal" class="hidden">
+      <div id="codex-modal-box">
+        <h2>CODEX</h2>
+        <div id="codex-entries"></div>
+        <button id="codex-close">[ close ]</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/script/main.js"></script>
+</body>
+</html>
