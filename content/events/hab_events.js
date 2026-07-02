@@ -110,6 +110,7 @@ export const HAB_EVENTS = [
         label: 'Note the bearing and keep working',
         effect: (sm, notif, eng) => {
           eng.unlockCodexEntry('company_memo_termination');
+          sm.setFlag('derelict_bearing_known', true);
         },
         log: 'You keep the coordinates. KESTREL keeps whatever it isn\'t telling you.'
       }

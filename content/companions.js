@@ -41,9 +41,13 @@ export const COMPANIONS = {
   juno: {
     id: 'juno',
     name: 'Juno',
-    role: 'Defector, origin unknown',
-    bio: 'Picked up mid-transit. Loyalty depends entirely on how you\'ve played everyone else.',
-    trustStages: []
+    role: 'Survivor, derelict rig',
+    bio: 'Welded herself into a locker rather than face whatever took her crew. Says it wasn\'t pirates. Doesn\'t say what it was.',
+    trustStages: [
+      { min: 0, line: '"Independent contract. Not Company, not registered to that rig. That\'s all you need to know for now."' },
+      { min: 5, line: '"You want to know what happened over there. Everyone does. I\'ll tell you when I trust you not to report it."' },
+      { min: 15, line: '"It wasn\'t pirates, and it wasn\'t an accident, and the Company knew before I did. Ask me the rest when we\'re somewhere they can\'t hear it."' }
+    ]
   }
 };
 

@@ -80,6 +80,17 @@ const actions = [
       sm.addStore('steel', 1);
       notifications.push('The smelter cooks the batch down into a single steel billet.');
     }
+  }),
+  new ActionButton({
+    id: 'launch_expedition_derelict',
+    label: 'Launch Expedition Pod — Derelict Rig',
+    cost: { power: 5, o2: 5 },
+    cooldownTicks: 999999,
+    visible: (state) => state.flags.derelict_bearing_known && !state.flags.expedition_launched,
+    onClick: (state, sm) => {
+      sm.setFlag('expedition_launched', true);
+      engine.triggerEvent('expedition_derelict_1');
+    }
   })
 ];
 

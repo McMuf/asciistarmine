@@ -31,6 +31,16 @@ export const CODEX = [
     id: 'anomaly_first_sample',
     title: 'Drone Survey Note — Unclassified Sample',
     body: 'KESTREL\'s notes, appended automatically: "Sample registers no known crystalline structure. Thermal signature inconsistent with ambient rock temperature by a margin no passive process explains. Recommend flagging for Consortium review." The recommendation was not acted on. By either of you.'
+  },
+  {
+    id: 'derelict_logbook',
+    title: 'Derelict Rig Logbook, Final Entry',
+    body: '"—not a mining accident, they came in through the—" The rest of the page is torn out, not burned, not corroded. Torn. By hand. Whoever wrote this had time to decide what you weren\'t allowed to read.'
+  },
+  {
+    id: 'juno_found',
+    title: 'Personal Note, Recovered',
+    body: 'Tucked in the sealed compartment, written on the back of a supply manifest: "If anyone reads this — I welded the door from the inside on purpose. It wasn\'t pirates. I need someone to believe that before I need anything else." It isn\'t signed. It didn\'t need to be.'
   }
 ];
 
